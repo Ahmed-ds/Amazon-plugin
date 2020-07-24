@@ -18,7 +18,7 @@ const CCPWrapper = {
                 }
             });
         }
-        // TODO: Fetch config from s3 bucket
+        // Fetch config from s3 bucket if configURL is provided else use config object provided
         if (configUrl !== null) {
             try {
                 let response = await fetch(configUrl);
