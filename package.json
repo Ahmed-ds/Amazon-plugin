@@ -1,6 +1,6 @@
 {
     "name": "aws-ccp",
-    "version": "1.0.27",
+    "version": "1.0.29",
     "description": "This is a wrapper plugin that will create a div container append it to body and then initialize AWS-CCP into current page.",
     "main": "lib/index.js",
     "scripts": {

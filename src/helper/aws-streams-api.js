@@ -1,4 +1,4 @@
-// import "amazon-connect-streams";
+import "amazon-connect-streams";
 
 let bus;
 
