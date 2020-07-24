@@ -2,7 +2,7 @@ import { createAWSCCPContainer, createAWSCCPContainerToggler, updateTogglerText 
 import { initCCP, callToNumber } from './helper/aws-streams-api';
 
 const CCPWrapper = {
-    init: function(config, onInit, onCallInit, onCallEnded) {
+    init: async function(configUrl, config, onInit, onCallInit, onCallEnded) {
         console.log('Initializing AWS CCP Wrapper...');
         createAWSCCPContainer('aws-ccp-container');
         createAWSCCPContainerToggler('aws-ccp-container');
@@ -17,6 +17,16 @@ const CCPWrapper = {
                     this.hide();
                 }
             });
+        }
+        // TODO: Fetch config from s3 bucket
+        if (configUrl !== null) {
+            try {
+                let response = await fetch(configUrl);
+                config = await response.json();
+            } catch(err) {
+                console.log("Something went wrong with config url!...");
+                console.log(err);
+            }
         }
         initCCP(document.getElementById('aws-ccp-container'), config, onInit, onCallInit, onCallEnded);
     },
