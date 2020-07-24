@@ -30,9 +30,9 @@ const configURL = {url_that_returns_above_config}
 CCPWrapper.init(configURL, config, onInit, onCallInit, onCallEnded);
 
 ```
-In above init call there are two options to pass connfiguration 
+In above init call there are two options to pass configuration 
 - `configURL` (url should return config json object or `null`)
-- `config` (config object for cco)
+- `config` (config object for ccp)
 If both are provided configURL will have priority. If you wnat to pass config directly then pass 'null' as a first argument of init method.
 
 You can call init when ever you want. This will initialize and redirect user to new tab to authenticate user. On success tab will close automatically and user comes back to own page.
